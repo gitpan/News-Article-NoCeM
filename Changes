@@ -1,0 +1,9 @@
+Revision history for Perl extension News::Article::NoCeM
+0.03  Tue Dec  7 16:33:54 CST 2004
+	- add manpage
+
+0.02  Mon Dec  6 10:01:56 CST 2004
+	- main implementation completed without documantation
+
+0.01  Sat Dec  4 21:11:45 CST 2004
+	- original released version, using code from newslib
