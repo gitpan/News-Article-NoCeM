@@ -1,4 +1,9 @@
 Revision history for Perl extension News::Article::NoCeM
+
+0.04  Mon Dec 20 21:55:42 CST 2004
+	- fix wrong format in sign()
+	Noticed by: Alica.bbs@bbs.hs.ntnu.edu.tw
+
 0.03  Tue Dec  7 16:33:54 CST 2004
 	- add manpage
 

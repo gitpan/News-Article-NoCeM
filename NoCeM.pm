@@ -1,7 +1,7 @@
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 package News::Article::NoCeM;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 # -*- Perl -*- Sat Dec  4 21:11:45 CST 2004
 #############################################################################
@@ -193,19 +193,18 @@ sub sign
 
   return if !scalar(@{$self->body()});
 
-  my @body = $self->body();
-  my ($signature, $version) = pgp_sign($keyid, $passphrase, @body);
+  my $body = join("\n", @{$self->body()}) . "\n";
+  my ($signature, $version) = pgp_sign($keyid, $passphrase, $body);
 
   return if !$signature;
 
   $self->set_body();
   $self->add_body("-----BEGIN PGP SIGNED MESSAGE-----");
   $self->add_body("");
-  $self->add_body(@body);
+  $self->add_body($body);
   $self->add_body("");
   $self->add_body("-----BEGIN PGP SIGNATURE-----");
   $self->add_body("Version: $version");
-  $self->add_body("Charset: noconv");
   $self->add_body("");
   $self->add_body($signature);
   $self->add_body("-----END PGP SIGNATURE-----");
