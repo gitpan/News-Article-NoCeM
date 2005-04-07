@@ -1,7 +1,7 @@
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 package News::Article::NoCeM;
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 # -*- Perl -*- Sat Dec  4 21:11:45 CST 2004
 #############################################################################
@@ -26,7 +26,7 @@ News::Article::NoCeM - a module to generate accurate nocem notices
   $nocem->hide($type, $spam);
   $nocem->make_notice($type, $name, $issuer, $group, $prefix);
   $nocem->sign($keyid, $passphrase);
-  $nocem->issue($conn);
+  $nocem->issue($conn, $ihave);
 
 =head1 DESCRIPTION
 
@@ -170,6 +170,7 @@ Notice-ID: $ncmid
   $self->set_headers('X-Issued-By', ref($self) . "-" . $VERSION);
   $self->set_headers('Path',       "nocem!not-for-mail");
   $self->add_date();
+  delete($self->{Headers}{'message-id'});
   $self->add_message_id();
   return $self;
 }
@@ -213,11 +214,13 @@ sub sign
 }
 push @EXPORT, qw( sign );
 
-=item issue ( [ CONN ] )
+=item issue ( [ CONN, IHAVE ] )
 
 Take optional C<CONN> as a Net::NNTP object and issue the nocem notice.
+C<IHAVE> indicates that call Net::NNTP::ihave() for submitting the notice,
+otherwise issue() will call News::Article::post() by default.
 
-issue() return the result of News::Article::post() for submitting the notice.
+issue() return the result of News::Article::post() or issue().
 
 =back
 
