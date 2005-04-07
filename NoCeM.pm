@@ -105,14 +105,14 @@ Please use issue() instead.
 sub post
 {
   my $self = shift;
-  die "You should use issue() instead of post() in " . ref($self) . "\n";
+  die "You should use issue(conn, 0) instead of post() in " . ref($self) . "\n";
 }
 push @EXPORT, qw( post );
 
 sub ihave
 {
   my $self = shift;
-  die "You should use issue() instead of ihave() in " . ref($self) . "\n";
+  die "You should use issue(conn, 1) instead of ihave() in " . ref($self) . "\n";
 }
 push @EXPORT, qw( ihave );
 
@@ -228,11 +228,12 @@ issue() return the result of News::Article::post() or issue().
 
 sub issue
 {
-  my $self   = shift;
-  my $server = shift;
+  my $self  = shift;
+  my $conn  = shift;
+  my $ihave = shift;
 
   return if !scalar(@{$self->body()});
-  return $self->SUPER::post($server);
+  return $ihave ? $self->SUPER::ihave($conn) : $self->SUPER::post($conn);
 }
 push @EXPORT, qw( issue );
 

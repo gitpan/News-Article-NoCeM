@@ -1,10 +1,12 @@
 Revision history for Perl extension News::Article::NoCeM
 
+0.06  Thu Apr  7 15:13:21 CST 2005
+	- support calling ihave() in issue()
+	Requested by: gslin
+
 0.05  Thu Apr  7 14:21:33 CST 2005
 	- nuke msgid before call add_message_id()
 	- add more tests, now 1..4
-	- support calling ihave() in issue()
-	Requested by: gslin
 
 0.04  Mon Dec 20 21:55:42 CST 2004
 	- fix wrong format in sign()
