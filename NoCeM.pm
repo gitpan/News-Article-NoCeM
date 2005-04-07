@@ -1,7 +1,6 @@
-$VERSION = '0.05';
-
 package News::Article::NoCeM;
-our $VERSION = '0.05';
+
+$VERSION = '0.07';
 
 # -*- Perl -*- Sat Dec  4 21:11:45 CST 2004
 #############################################################################
@@ -54,7 +53,7 @@ use PGP::Sign;
 use Exporter;
 use strict;
 
-use vars qw( @ISA @EXPORT @EXPORT_OK );
+use vars qw( @ISA @EXPORT @EXPORT_OK $VERSION );
 
 @ISA = qw( Exporter News::Article );
 

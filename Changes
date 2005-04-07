@@ -1,5 +1,8 @@
 Revision history for Perl extension News::Article::NoCeM
 
+0.07  Thu Apr  7 22:33:21 CST 2005
+	- correct the version
+
 0.06  Thu Apr  7 15:13:21 CST 2005
 	- support calling ihave() in issue()
 	Requested by: gslin
