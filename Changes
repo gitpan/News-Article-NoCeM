@@ -1,5 +1,10 @@
 Revision history for Perl extension News::Article::NoCeM
 
+0.08  Sat Jun 24 03:53:39 CST 2006
+	- getting married today :D
+	- indicate that it's encoding with SHA1
+	Patch submitted by: tskirvin@killfile.org
+
 0.07  Thu Apr  7 22:33:21 CST 2005
 	- correct the version
 

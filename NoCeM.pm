@@ -1,6 +1,6 @@
 package News::Article::NoCeM;
 
-$VERSION = '0.07';
+$VERSION = '0.08';
 
 # -*- Perl -*- Sat Dec  4 21:11:45 CST 2004
 #############################################################################
@@ -200,6 +200,7 @@ sub sign
 
   $self->set_body();
   $self->add_body("-----BEGIN PGP SIGNED MESSAGE-----");
+  $self->add_body("Hash: SHA1");
   $self->add_body("");
   $self->add_body($body);
   $self->add_body("");
